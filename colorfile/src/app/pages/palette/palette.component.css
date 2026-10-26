@@ -15,3 +15,20 @@ min-height: 100vh;
   box-sizing: border-box;
   border-radius: 5px;
 }
+
+.contenedor2 {
+  display: flex;
+gap: 10px;
+justify-content: center;
+align-items: flex-end;
+min-height: 100vh;
+}
+
+.rectangulo2 {
+  width: 3cm;
+  height: 3cm;
+  background-color: #db3493;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
