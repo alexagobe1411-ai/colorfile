@@ -1,27 +1,30 @@
 /* Styles ofr rectangles*/
 .contenedor {
   display: flex;
-gap: 10px;
+gap: 30px;
 justify-content: center;
-align-items: center;
-min-height: 100vh;
+width: 100%;
+
+
+}
+
+.contenedor2 {
+  display: flex;
+gap: 30px;
+justify-content: center;
+width: 100%;
+margin-top: 30px;
 }
 
 .rectangulo {
+
   width: 3cm;
   height: 3cm;
   background-color: #3498db;
   border: 1px solid #000;
   box-sizing: border-box;
   border-radius: 5px;
-}
-
-.contenedor2 {
-  display: flex;
-gap: 10px;
-justify-content: center;
-align-items: flex-end;
-min-height: 100vh;
+  flex-shrink: 0;
 }
 
 .rectangulo2 {
@@ -31,4 +34,5 @@ min-height: 100vh;
   border: 1px solid #000;
   box-sizing: border-box;
   border-radius: 5px;
+  flex-shrink: 0;
 }
