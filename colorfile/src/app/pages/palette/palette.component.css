@@ -1,0 +1,13 @@
+/* Styles ofr rectangles*/
+.contenedor {
+  display: flex;
+gap: 10px;
+}
+
+.rectangulo {
+  width: 3cm;
+  height: 3cm;
+  background-color: #3498db;
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
