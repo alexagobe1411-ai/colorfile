@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
+import { ColorService } from '../../services/color.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-palette',
@@ -7,4 +9,8 @@ import {Component} from '@angular/core';
   styleUrls: ['./palette.component.css']
 })
 
-export class PaletteComponent {}
+export class PaletteComponent {
+  colorService = inject(ColorService);
+
+  colors = toSignal(this.colorService.getPalette());
+}

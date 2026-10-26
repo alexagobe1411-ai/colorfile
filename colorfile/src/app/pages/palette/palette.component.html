@@ -1,18 +1,24 @@
 <div class="palette-container">
   <div class="contenedor">
+    @if (colors()) {
+      @for (color of colors(); track color.name ) {
+      <div class="rectangulo" [style]="{ 'background-color': color.hex }">{{color.hex}}</div>
+    }
+  } @else {
     <div class="rectangulo"></div>
     <div class="rectangulo"></div>
     <div class="rectangulo"></div>
     <div class="rectangulo"></div>
     <div class="rectangulo"></div>
+    }
   </div>
 
 
-  <div class="contenedor2">
-    <div class="rectangulo2"></div>
-    <div class="rectangulo2"></div>
-    <div class="rectangulo2"></div>
-    <div class="rectangulo2"></div>
-    <div class="rectangulo2"></div>
+  <div class="contenedor">
+    <div class="rectangulo rectangulo2"></div>
+    <div class="rectangulo rectangulo2"></div>
+    <div class="rectangulo rectangulo2"></div>
+    <div class="rectangulo rectangulo2"></div>
+    <div class="rectangulo rectangulo2"></div>
   </div>
 </div>

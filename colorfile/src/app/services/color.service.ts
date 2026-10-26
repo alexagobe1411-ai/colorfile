@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,9 +12,8 @@ export interface ColorItem {
   providedIn: 'root'
 })
 export class ColorService {
+  private http = inject(HttpClient);
   private apiUrl = 'https://www.thecolorapi.com';
-
-  constructor(private http: HttpClient) {}
 
   private getRandomHex(): string {
     return Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');

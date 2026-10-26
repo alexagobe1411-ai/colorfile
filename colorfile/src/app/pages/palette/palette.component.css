@@ -1,6 +1,12 @@
-/* Styles ofr rectangles*/
+:host {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-.paleta-container {
+/* Styles ofr rectangles*/
+.palette-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,27 +17,16 @@
 }
 
 .contenedor {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 30px;
   justify-content: center;
   width: 100%;
-
-
-}
-
-.contenedor2 {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  width: 100%;
-  margin-top: 30px;
 }
 
 .rectangulo {
-
   width: 3cm;
   height: 3cm;
-  background-color: #3498db;
   border: 1px solid #000;
   box-sizing: border-box;
   border-radius: 5px;
@@ -39,11 +34,5 @@
 }
 
 .rectangulo2 {
-  width: 3cm;
-  height: 3cm;
   background-color: #db3493;
-  border: 1px solid #000;
-  box-sizing: border-box;
-  border-radius: 5px;
-  flex-shrink: 0;
 }
