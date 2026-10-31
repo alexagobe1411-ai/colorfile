@@ -13,12 +13,17 @@
     }
   </div>
 
-
   <div class="contenedor">
-    <div class="rectangulo rectangulo2"></div>
-    <div class="rectangulo rectangulo2"></div>
-    <div class="rectangulo rectangulo2"></div>
-    <div class="rectangulo rectangulo2"></div>
-    <div class="rectangulo rectangulo2"></div>
+    @if (images()) {
+      @for (imgUrl of images(); track $index) {
+        <div class="rectangulo rectangulo2-img" [style.background-image]="'url(' + imgUrl + ')'"></div>
+      }
+    } @else {
+      <div class="rectangulo"></div>
+      <div class="rectangulo"></div>
+      <div class="rectangulo"></div>
+      <div class="rectangulo"></div>
+      <div class="rectangulo"></div>
+    }
   </div>
 </div>

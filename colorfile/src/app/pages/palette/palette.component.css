@@ -33,6 +33,10 @@
   flex-shrink: 0;
 }
 
-.rectangulo2 {
-  background-color: #db3493;
+
+
+.rectangulo-img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
