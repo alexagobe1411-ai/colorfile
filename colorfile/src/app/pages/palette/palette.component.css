@@ -88,23 +88,16 @@
 }
   Para efectos en las esquinas 
 :host{
-  position:relative;
-  isolation: isolate;
+background-color: #faf9f6;
 }
 
-:host::before{
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
 
-   background: radial-gradient(ellipse at top left, rgba(0,0, 0, 0.45),transparent 35%),
-   radial-gradient(ellipse at top right, rgba(0,0, 0, 0.45),transparent 35%),
-   radial-gradient(ellipse at bottom right, rgba(0,0, 0, 0.45),transparent 35%),
-   radial-gradient(ellipse at bottom left, rgba(0,0, 0, 0.45),transparent 35%);
-}
 
 .home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
  align-self: flex-start;
   padding: 10px 18px;
   border: 0;
