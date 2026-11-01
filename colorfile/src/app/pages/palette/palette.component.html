@@ -1,4 +1,8 @@
 <div class="palette-container">
+  <button class="reload-button" type="button" (click)="reloadPalette()">
+    Generar otra paleta
+  </button>
+
   <div class="contenedor">
     @if (colors()) {
       @for (color of colors(); track color.name ) {
