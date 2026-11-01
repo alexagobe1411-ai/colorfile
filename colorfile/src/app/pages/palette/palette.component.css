@@ -1,3 +1,27 @@
+.palette-container {
+  position: relative;
+
+}
+
+.triangle{
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 90px solid rgba(0, 0, 0, 0.15);
+  animation: float 10s infinite ease-in-out;
+}
+
+.palette-container > button,
+.palette-container > .contenedor {
+  position: relative;
+  z-index: 1;
+}
+
+
 :host {
   min-height: 100dvh;
   display: flex;
@@ -109,19 +133,6 @@
   left: 20px;
 }
 
-.triangle{
-    position:absolute;
-
-    width:0;
-    height:0;
-
-    border-left:50px solid transparent;
-    border-right:50px solid transparent;
-    border-bottom:90px solid rgba(0,0,0,0.15);
-
-    animation: float 10s infinite ease-in-out;
-}
-
 .t1{
     top:10%;
     left:5%;
@@ -149,17 +160,6 @@
 }
 
 .t5{
-    top:50%;
-    left:60%;
-    animation-duration:9s;
-}
-.t6{
-    top:50%;
-    left:60%;
-    animation-duration:9s;
-}
-
-.t7{
     top:50%;
     left:60%;
     animation-duration:9s;
