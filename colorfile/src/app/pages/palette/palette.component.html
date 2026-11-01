@@ -14,9 +14,13 @@
   </div>
 
   <div class="contenedor">
-    @if (images()) {
+    @if (images() && colors()) {
       @for (imgUrl of images(); track $index) {
-        <div class="rectangulo rectangulo2-img" [style.background-image]="'url(' + imgUrl + ')'"></div>
+        <div 
+        class="rectangulo rectangulo2-img" 
+        [style.background-image]="'url(' + imgUrl + ')'"
+        [style.background-color]="colors()![$index].hex"
+        ></div>
       }
     } @else {
       <div class="rectangulo"></div>

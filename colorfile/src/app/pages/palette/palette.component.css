@@ -27,7 +27,7 @@
 .rectangulo {
   width: 3cm;
   height: 3cm;
-  border: 1px solid #000;
+
   box-sizing: border-box;
   border-radius: 5px;
   flex-shrink: 0;
@@ -35,8 +35,9 @@
 
 
 
-.rectangulo-img {
+.rectangulo2-img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-blend-mode: multiply;
 }

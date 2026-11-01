@@ -14,8 +14,11 @@ import { map } from 'rxjs/operators';
 export class PaletteComponent {
   colorService = inject(ColorService);
   private http = inject(HttpClient);
-
+  
+//para establecer los colores 
   colors = toSignal(this.colorService.getPalette());
+
+// para establecer imagenes de api
   images = toSignal(
     this.http.get<any[]>(`https://picsum.photos/v2/list?page=${Math.floor(Math.random() * 50) + 1}&limit=5`).pipe(
       map(list => list.map(img => `https://picsum.photos/id/${img.id}/300/300`))
