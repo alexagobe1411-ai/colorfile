@@ -8,6 +8,9 @@
       @for (color of colors(); track color.name ) {
       <div class="rectangulo" [style]="{ 'background-color': color.hex }">
         <span class="hex-label">{{ color.hex }}</span>
+        <button class="copy-button" type="button" (click)="copyColor(color.hex)">
+          {{ copiedHex() === color.hex ? 'Copiado' : 'Copiar' }}
+        </button>
       </div>
     }
   } @else {
@@ -26,7 +29,6 @@
         class="rectangulo rectangulo2-img" 
         [style.background-image]="'url(' + imgUrl + ')'"
         [style.background-color]="colors()![$index].hex"
-        >
         ></div>
       }
     } @else {

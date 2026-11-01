@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import { ColorService } from '../../services/color.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { HttpClient } from '@angular/common/http';
@@ -15,6 +15,7 @@ import { startWith, Subject, switchMap } from 'rxjs';
 export class PaletteComponent {
   colorService = inject(ColorService);
   private http = inject(HttpClient);
+  copiedHex = signal<string | null>(null);
 
   private reload$ = new Subject<void>();
 
@@ -41,5 +42,10 @@ export class PaletteComponent {
 
   reloadPalette(): void {
     this.reload$.next();
+  }
+
+  async copyColor(hex: string): Promise<void> {
+    await navigator.clipboard.writeText(hex);
+    this.copiedHex.set(hex);
   }
 }

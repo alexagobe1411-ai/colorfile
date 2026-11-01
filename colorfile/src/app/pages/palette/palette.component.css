@@ -45,8 +45,9 @@
   border-radius: 5px;
   flex-shrink: 0;
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   padding: 6px;
   overflow: hidden;
 }
@@ -60,6 +61,21 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 1.2;
+}
+
+.copy-button {
+  padding: 4px 10px;
+  border: 0;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #171717;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background: #fff;
 }
 
 
