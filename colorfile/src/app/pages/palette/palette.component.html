@@ -6,7 +6,9 @@
   <div class="contenedor">
     @if (colors()) {
       @for (color of colors(); track color.name ) {
-      <div class="rectangulo" [style]="{ 'background-color': color.hex }">{{color.hex}}</div>
+      <div class="rectangulo" [style]="{ 'background-color': color.hex }">
+        <span class="hex-label">{{ color.hex }}</span>
+      </div>
     }
   } @else {
     <div class="rectangulo"></div>
@@ -24,6 +26,7 @@
         class="rectangulo rectangulo2-img" 
         [style.background-image]="'url(' + imgUrl + ')'"
         [style.background-color]="colors()![$index].hex"
+        >
         ></div>
       }
     } @else {
