@@ -4,10 +4,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { startWith, Subject, switchMap } from 'rxjs';
+import{RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-palette',
   standalone: true,
+  imports: [RouterLink],
   templateUrl: './palette.component.html',
   styleUrls: ['./palette.component.css']
 })
