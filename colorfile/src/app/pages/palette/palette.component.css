@@ -86,3 +86,20 @@
   background-repeat: no-repeat;
   background-blend-mode: multiply;
 }
+  Para efectos en las esquinas 
+:host{
+  position:relative;
+  isolation: isolate;
+}
+
+:host::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
+   background: radial-gradient(ellipse at top left, rgba(0,0, 0, 0.45),transparent 35%),
+   radial-gradient(ellipse at top right, rgba(0,0, 0, 0.45),transparent 35%),
+   radial-gradient(ellipse at bottom right, rgba(0,0, 0, 0.45),transparent 35%),
+   radial-gradient(ellipse at bottom left, rgba(0,0, 0, 0.45),transparent 35%);
+}
