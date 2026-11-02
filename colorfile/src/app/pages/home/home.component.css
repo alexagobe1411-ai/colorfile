@@ -48,7 +48,7 @@ button {
 button:hover {
   transform: scale(1.1);
 }
-
+/* IA USE TO REFACTOR */
 @media (max-width: 768px) {
   .title {
     font-size: clamp(2.5rem, 7vw, 3.125rem);

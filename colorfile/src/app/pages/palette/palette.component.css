@@ -131,6 +131,7 @@
   left: 20px;
 }
 
+/* IA USE TO REFACTOR */
 @media (max-width: 768px) {
   .palette-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));

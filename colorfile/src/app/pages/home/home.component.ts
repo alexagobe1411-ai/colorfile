@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router) {}
   
 /*Random background color generation for the home page */
+/* IA USE TO REFACTOR */
   ngOnInit(): void {
     const hue = Math.floor(Math.random() * 360);
     this.backgroundColor = `hsl(${hue}, 80%, 50%)`;

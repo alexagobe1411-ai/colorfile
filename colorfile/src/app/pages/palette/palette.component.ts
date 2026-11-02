@@ -1,9 +1,14 @@
+// This is ColorFile proyect, as person who has use ia parts that are made with ia are commented. 
+//Also i would like to mention that i also use the next website for searching https://www.luisllamas.es/css-media-queries-responsive/
+
+
 import { Component, inject, signal } from '@angular/core';
 import { ColorService } from '../../services/color.service';
 import { ImageService } from '../../services/image.service';
 import { TriangleComponent } from '../../components/triangle/triangle.component';
 import { SearchToolComponent } from '../../components/searchtool.component';
 import { toSignal } from '@angular/core/rxjs-interop';
+//IA USE TO UNDERESTAND LOGICS OF RECARGAR
 import { startWith, Subject, switchMap } from 'rxjs';
 import { RouterLink } from '@angular/router';
 
@@ -39,7 +44,7 @@ export class PaletteComponent {
     ),
     { initialValue: null }
   );
-
+// Al recargar, obtiene un color aleatorio IA USE 
   reloadPalette(): void {
     this.reload$.next();
   }
