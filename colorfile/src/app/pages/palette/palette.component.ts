@@ -1,8 +1,7 @@
 import {Component, inject, signal} from '@angular/core';
 import { ColorService } from '../../services/color.service';
+import { ImageService } from '../../services/image.service';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { startWith, Subject, switchMap } from 'rxjs';
 import{RouterLink} from '@angular/router';
 
@@ -16,7 +15,7 @@ import{RouterLink} from '@angular/router';
 
 export class PaletteComponent {
   colorService = inject(ColorService);
-  private http = inject(HttpClient);
+  private imageService = inject(ImageService);
   copiedHex = signal<string | null>(null);
 
   private reload$ = new Subject<void>();
@@ -34,10 +33,7 @@ export class PaletteComponent {
   images = toSignal(
     this.reload$.pipe(
       startWith(undefined),
-      switchMap(() => this.http.get<any[]>(
-        `https://picsum.photos/v2/list?page=${Math.floor(Math.random() * 50) + 1}&limit=5`
-      )),
-      map(list => list.map(img => `https://picsum.photos/id/${img.id}/300/300`))
+      switchMap(() => this.imageService.getImages())
     ),
     { initialValue: null }
   );
