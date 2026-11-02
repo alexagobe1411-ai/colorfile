@@ -44,7 +44,7 @@ export class PaletteComponent {
     this.reload$.next();
   }
 
-  // Copy color to clipboard
+  // Copy color to clipboard // IA copy function 
   async copyColor(hex: string): Promise<void> {
     await navigator.clipboard.writeText(hex);
     this.copiedHex.set(hex);
