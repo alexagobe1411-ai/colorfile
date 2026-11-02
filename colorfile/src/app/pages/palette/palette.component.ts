@@ -1,14 +1,17 @@
 import {Component, inject, signal} from '@angular/core';
 import { ColorItem, ColorService } from '../../services/color.service';
 import { ImageService } from '../../services/image.service';
+import { TriangleComponent } from '../../components/triangle.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { firstValueFrom, startWith, Subject, switchMap } from 'rxjs';
 import{RouterLink} from '@angular/router';
 
+
+
 @Component({
   selector: 'app-palette',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TriangleComponent],
   templateUrl: './palette.component.html',
   styleUrls: ['./palette.component.css']
 })
@@ -45,6 +48,9 @@ export class PaletteComponent {
     this.reload$.next();
   }
 
+
+
+  // Searching logics  text input
   async searchColor(value: string): Promise<void> {
     const hex = value.trim().replace(/^#/, '');
     this.searchResult.set(null);

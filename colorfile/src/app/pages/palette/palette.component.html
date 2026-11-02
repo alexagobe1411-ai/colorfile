@@ -1,8 +1,14 @@
+
+
+<!-- Reload palette button -->
 <div class="palette-container">
   <button class="reload-button" type="button" (click)="reloadPalette()">
     Generar otra paleta
   </button>
 
+
+
+<!-- Section of searching logic -->
   <section class="search-panel" aria-labelledby="hex-search-title">
     <label id="hex-search-title" for="hex-search-input">Buscar un color por HEX</label>
     <div class="search-controls">
@@ -41,15 +47,12 @@
     }
   </section>
 
-  <div class="triangle t1"></div>
-  <div class="triangle t2"></div>
-  <div class="triangle t3"></div>
-  <div class="triangle t4"></div>
-  <div class="triangle t5"></div>
+
+<!-- Colors showing up in rectangles -->
 
   <div class="contenedor">
     @if (colors()) {
-      @for (color of colors(); track color.name ) {
+      @for (color of colors(); track color.name) {
       <div class="rectangulo" [style]="{ 'background-color': color.hex }">
         <span class="hex-label">{{ color.hex }}</span>
         <button class="copy-button" type="button" (click)="copyColor(color.hex)">
@@ -66,6 +69,10 @@
     }
   </div>
 
+
+
+
+  <!-- Images to show up on rectangles-->
   <div class="contenedor">
     @if (images() && colors()) {
       @for (imgUrl of images(); track $index) {
@@ -84,6 +91,7 @@
     }
   </div>
 </div>
+
 
 <button class="home-button" type="button" routerLink="/">
   Volver a Home

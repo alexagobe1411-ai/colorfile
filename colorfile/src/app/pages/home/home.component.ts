@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterLink } from '@angular/router';
+import { TriangleComponent } from '../../components/triangle.component';
 @Component({
   
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TriangleComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
