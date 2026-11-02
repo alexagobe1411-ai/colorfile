@@ -4,7 +4,7 @@
 }
 
 .palette-container > button,
-.palette-container > .contenedor,
+.palette-container > .container,
 .palette-container > .search-panel {
   position: relative;
   z-index: 1;
@@ -127,7 +127,7 @@
   transition: 0.3s, box-shadow 0.3s;
 }
 
-.contenedor {
+.container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 30px;
@@ -179,7 +179,7 @@
 
 
 
-.rectangulo2-img {
+.rectangle-image {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

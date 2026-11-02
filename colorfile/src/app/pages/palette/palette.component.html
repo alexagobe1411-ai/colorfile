@@ -50,10 +50,10 @@
 
 <!-- Colors showing up in rectangles -->
 
-  <div class="contenedor">
+  <div class="container">
     @if (colors()) {
       @for (color of colors(); track color.name) {
-      <div class="rectangulo" [style]="{ 'background-color': color.hex }">
+      <div class="rectangle" [style]="{ 'background-color': color.hex }">
         <span class="hex-label">{{ color.hex }}</span>
         <button class="copy-button" type="button" (click)="copyColor(color.hex)">
           {{ copiedHex() === color.hex ? 'Copiado' : 'Copiar' }}
@@ -61,11 +61,11 @@
       </div>
     }
   } @else {
-    <div class="rectangulo"></div>
-    <div class="rectangulo"></div>
-    <div class="rectangulo"></div>
-    <div class="rectangulo"></div>
-    <div class="rectangulo"></div>
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
+    <div class="rectangle"></div>
     }
   </div>
 
@@ -73,21 +73,21 @@
 
 
   <!-- Images to show up on rectangles-->
-  <div class="contenedor">
+  <div class="container">
     @if (images() && colors()) {
       @for (imgUrl of images(); track $index) {
         <div 
-        class="rectangulo rectangulo2-img" 
+        class="rectangle rectangle-image"
         [style.background-image]="'url(' + imgUrl + ')'"
         [style.background-color]="colors()![$index].hex"
         ></div>
       }
     } @else {
-      <div class="rectangulo"></div>
-      <div class="rectangulo"></div>
-      <div class="rectangulo"></div>
-      <div class="rectangulo"></div>
-      <div class="rectangulo"></div>
+      <div class="rectangle"></div>
+      <div class="rectangle"></div>
+      <div class="rectangle"></div>
+      <div class="rectangle"></div>
+      <div class="rectangle"></div>
     }
   </div>
 </div>
