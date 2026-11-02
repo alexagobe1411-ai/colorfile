@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
 import { ColorItem, ColorService } from '../services/color.service';
-
+//IA USE TO ask how to create a search tool for colors by hex code them modified
 @Component({
   selector: 'app-searchtool',
   standalone: true,
