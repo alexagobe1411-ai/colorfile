@@ -3,6 +3,43 @@
     Generar otra paleta
   </button>
 
+  <section class="search-panel" aria-labelledby="hex-search-title">
+    <label id="hex-search-title" for="hex-search-input">Buscar un color por HEX</label>
+    <div class="search-controls">
+      <input
+        id="hex-search-input"
+        #hexInput
+        type="text"
+        placeholder="#A1B2C3"
+        maxlength="7"
+        autocomplete="off"
+        spellcheck="false"
+        (keydown.enter)="searchColor(hexInput.value)"
+      >
+      <button
+        class="search-button"
+        type="button"
+        [disabled]="isSearching()"
+        (click)="searchColor(hexInput.value)"
+      >
+        {{ isSearching() ? 'Buscando…' : 'Buscar' }}
+      </button>
+    </div>
+
+    <p class="search-message" aria-live="polite">
+      @if (searchError()) {
+        {{ searchError() }}
+      }
+    </p>
+
+    @if (searchResult(); as result) {
+      <div class="search-result" aria-live="polite">
+        <span class="search-swatch" [style.background-color]="result.hex"></span>
+        <span>{{ result.name }}</span>
+        <strong>{{ result.hex }}</strong>
+      </div>
+    }
+  </section>
 
   <div class="triangle t1"></div>
   <div class="triangle t2"></div>
