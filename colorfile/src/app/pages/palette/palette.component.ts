@@ -1,28 +1,24 @@
-import {Component, inject, signal} from '@angular/core';
-import { ColorItem, ColorService } from '../../services/color.service';
+import { Component, inject, signal } from '@angular/core';
+import { ColorService } from '../../services/color.service';
 import { ImageService } from '../../services/image.service';
-import { TriangleComponent } from '../../components/triangle.component';
+import { TriangleComponent } from '../../components/triangle/triangle.component';
+import { SearchToolComponent } from '../../components/searchtool.component';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { firstValueFrom, startWith, Subject, switchMap } from 'rxjs';
-import{RouterLink} from '@angular/router';
-
-
+import { startWith, Subject, switchMap } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-palette',
   standalone: true,
-  imports: [RouterLink, TriangleComponent],
+  imports: [RouterLink, TriangleComponent, SearchToolComponent],
   templateUrl: './palette.component.html',
   styleUrls: ['./palette.component.css']
 })
-
 export class PaletteComponent {
   colorService = inject(ColorService);
   private imageService = inject(ImageService);
+  readonly placeholders = [1, 2, 3, 4, 5];
   copiedHex = signal<string | null>(null);
-  searchResult = signal<ColorItem | null>(null);
-  searchError = signal<string | null>(null);
-  isSearching = signal(false);
 
   private reload$ = new Subject<void>();
 
@@ -48,30 +44,7 @@ export class PaletteComponent {
     this.reload$.next();
   }
 
-
-
-  // Searching logics  text input
-  async searchColor(value: string): Promise<void> {
-    const hex = value.trim().replace(/^#/, '');
-    this.searchResult.set(null);
-    this.searchError.set(null);
-
-    if (!/^[0-9a-fA-F]{6}$/.test(hex)) {
-      this.searchError.set('Escribe un código HEX válido de 6 caracteres, por ejemplo #A1B2C3.');
-      return;
-    }
-
-    this.isSearching.set(true);
-    try {
-      const color = await firstValueFrom(this.colorService.getColorByHex(hex));
-      this.searchResult.set(color);
-    } catch {
-      this.searchError.set('No se pudo consultar el color. Inténtalo de nuevo.');
-    } finally {
-      this.isSearching.set(false);
-    }
-  }
-
+  // Copy color to clipboard
   async copyColor(hex: string): Promise<void> {
     await navigator.clipboard.writeText(hex);
     this.copiedHex.set(hex);

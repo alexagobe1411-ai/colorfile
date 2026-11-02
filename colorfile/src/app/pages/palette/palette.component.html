@@ -1,93 +1,37 @@
 
 
-<!-- Reload palette button -->
 <div class="palette-container">
   <button class="reload-button" type="button" (click)="reloadPalette()">
     Generar otra paleta
   </button>
 
+  <app-searchtool />
+  <app-triangles />
 
-
-<!-- Section of searching logic -->
-  <section class="search-panel" aria-labelledby="hex-search-title">
-    <label id="hex-search-title" for="hex-search-input">Buscar un color por HEX</label>
-    <div class="search-controls">
-      <input
-        id="hex-search-input"
-        #hexInput
-        type="text"
-        placeholder="#A1B2C3"
-        maxlength="7"
-        autocomplete="off"
-        spellcheck="false"
-        (keydown.enter)="searchColor(hexInput.value)"
-      >
-      <button
-        class="search-button"
-        type="button"
-        [disabled]="isSearching()"
-        (click)="searchColor(hexInput.value)"
-      >
-        {{ isSearching() ? 'Buscando…' : 'Buscar' }}
-      </button>
-    </div>
-
-    <p class="search-message" aria-live="polite">
-      @if (searchError()) {
-        {{ searchError() }}
-      }
-    </p>
-
-    @if (searchResult(); as result) {
-      <div class="search-result" aria-live="polite">
-        <span class="search-swatch" [style.background-color]="result.hex"></span>
-        <span>{{ result.name }}</span>
-        <strong>{{ result.hex }}</strong>
-      </div>
-    }
-  </section>
-
-
-<!-- Colors showing up in rectangles -->
-
-  <div class="container">
-    @if (colors()) {
-      @for (color of colors(); track color.name) {
-      <div class="rectangle" [style]="{ 'background-color': color.hex }">
-        <span class="hex-label">{{ color.hex }}</span>
-        <button class="copy-button" type="button" (click)="copyColor(color.hex)">
-          {{ copiedHex() === color.hex ? 'Copiado' : 'Copiar' }}
-        </button>
-      </div>
-    }
-  } @else {
-    <div class="rectangle"></div>
-    <div class="rectangle"></div>
-    <div class="rectangle"></div>
-    <div class="rectangle"></div>
-    <div class="rectangle"></div>
-    }
-  </div>
-
-
-
-
-  <!-- Images to show up on rectangles-->
-  <div class="container">
-    @if (images() && colors()) {
-      @for (imgUrl of images(); track $index) {
-        <div 
-        class="rectangle rectangle-image"
-        [style.background-image]="'url(' + imgUrl + ')'"
-        [style.background-color]="colors()![$index].hex"
-        ></div>
+  <div class="palette-grid">
+    @if (colors() && images()) {
+      @for (color of colors(); track color.name; let index = $index) {
+        <div class="palette-pair">
+          <div class="rectangle" [style.background-color]="color.hex">
+            <span class="hex-label">{{ color.hex }}</span>
+            <button class="copy-button" type="button" (click)="copyColor(color.hex)">
+              {{ copiedHex() === color.hex ? 'Copiado' : 'Copiar' }}
+            </button>
+          </div>
+          <div
+            class="rectangle rectangle-image"
+            [style.background-image]="'url(' + images()![index] + ')'"
+            [style.background-color]="color.hex"
+          ></div>
+        </div>
       }
     } @else {
-      <div class="rectangle"></div>
-      <div class="rectangle"></div>
-      <div class="rectangle"></div>
-      <div class="rectangle"></div>
-      <div class="rectangle"></div>
+      @for (placeholder of placeholders; track placeholder) {
+        <div class="palette-pair">
+          <div class="rectangle"></div>
+          <div class="rectangle"></div>
+        </div>
+      }
     }
   </div>
 </div>
