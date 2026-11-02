@@ -40,4 +40,16 @@ export class ColorService {
       }))
     );
   }
+
+  // Metodo para el bucador de hex 
+  getColorByHex(hex: string): Observable<ColorItem> {
+    const normalizedHex = hex.trim().replace(/^#/, '');
+
+    return this.http.get<any>(`${this.apiUrl}/id?hex=${encodeURIComponent(normalizedHex)}`).pipe(
+      map(res => ({
+        hex: res.hex.value,
+        name: res.name.value
+      }))
+    );
+  }
 }
