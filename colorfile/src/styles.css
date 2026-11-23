@@ -1,8 +1,77 @@
-/* You can add global styles to this file, and also import other style files */
 
-@import 'tailwindcss';
-html, body {
-    margin:0;
-  min-height: 100%;
+@font-face {
+  font-family: 'Poppins';
+  src: url('/assets/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+/* TIPOGRAFÍA GENERAL */
+* {
+  font-family: 'Poppins', sans-serif;
 }
 
+/* CONFIGURACIÓN GENERAL */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+/* BOTÓN GLOBAL COLORFILE */
+.cf-button {
+  position: relative;
+  z-index: 10;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.cf-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  transition: 0.3s, box-shadow 0.3s;
+}
+/* IA USE TO REFACTOR */
+@media (max-width: 768px) {
+  .title {
+    font-size: clamp(2.5rem, 7vw, 3.125rem);
+  }
+
+  button {
+    padding: 14px 36px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  
+.cf-button {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .cf-button {
+    padding: 14px 36px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cf-button {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,11 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  z-index: 100;
+  top: 20px;
+  width: 100%;
+  padding: 0 20px;
+}

@@ -1,0 +1,6 @@
+.back-home:hover {
+  transform: scale(1.1);
+}
+.back-home {
+  transition: 0.3s;
+}

@@ -1,8 +1,13 @@
 <nav>
-  <a routerLink="/">Inicio</a>
-  <a routerLink="/palette">Paleta</a>
-  <a routerLink="/login">Iniciar sesión</a>
-  <a routerLink="/favorites">Favoritos</a>
+  @if(true) {
+    <a class="home-button cf-button" type="button" routerLink="/">
+      Volver a Home
+    </a>
+  }
+  <div>
+    <a routerLink="login" class="cf-button">Iniciar sesión</a>
+    <a routerLink="favorites" class="cf-button">Favoritos</a>
+  </div>
 </nav>
 
 <main class="flex flex-col min-h-screen max-w-screen">
