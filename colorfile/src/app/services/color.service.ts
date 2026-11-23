@@ -14,9 +14,14 @@ export interface ColorItem {
 export class ColorService {
   private http = inject(HttpClient);
   private apiUrl = 'https://www.thecolorapi.com';
+  private myBackendUrl = 'http://localhost:3000';
 
   private getRandomHex(): string {
     return Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+  }
+
+  getHelloWorld() {
+    
   }
 
   // Obtiene 5 colores de la API
